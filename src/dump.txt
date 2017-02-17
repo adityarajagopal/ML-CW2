@@ -1,0 +1,14 @@
+	//int num_coeff = weights.rows()-1;
+	//learned = Eigen::MatrixXd::Constant(1, x1.cols(), -(weights(0)/weights(num_coeff)));
+	//for(int i=1; i<num_coeff; i++){
+	//	learned = learned.array() - (weights(i)/weights(num_coeff)) * x1.array().pow(i);
+	//}	 
+	//
+	////convert Eigen::Matrix to c++ vector and create json
+	//v1.assign(x1.data(), x1.data()+x1.size());
+	//v2.assign(x2.data(), x2.data()+x2.size());
+	//vc.assign(colour.data(), colour.data()+colour.size());
+	//vo.assign(original.data(), original.data()+original.size());
+	//vl.assign(learned.data(), learned.data()+learned.size());	
+	//generate_graph(v1,v2,"x1 vs. x2", "x1", "x2", "plot_test", graph, vc, vo, vl);	
+	//std::cout << std::setw(4) << graph << std::endl; 	
