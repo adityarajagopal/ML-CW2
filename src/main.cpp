@@ -30,6 +30,7 @@ int main(){
 	int q, num_points, selected_class;  
 	std::vector<double> v1, v2, vo, vc, vl, r_h, omega_erm, omega_srm; 
 	json graph; 
+	Eigen::MatrixXd all_g[5];
 	
 	noise = 0.1; 
 	num_points = 10000;
@@ -37,6 +38,9 @@ int main(){
 	delta = 0.5;
 	h_w = 0.2; 
 	srm_min = 2; 
+	double omult = 0.01; 
+	
+	std::cerr << "omult: " << omult << std::endl; 
 	
 	auto start_proc = hrclock::now();
 	for (q = 0; q < 5; q++){
@@ -54,11 +58,13 @@ int main(){
 			curr_g.col(i) = weights;
 		}
 		auto end = hrclock::now();
+
+		all_g[q] = curr_g; 
 		
 		avg_error = avg_error/iterations; 
 		omega = complexity(q+2, num_points, delta, h_w);
 		
-		srm = avg_error + 0.01*omega;
+		srm = avg_error + omult*omega;
 		std::cerr << "comp: " << omega << std::endl;
 		std::cerr << "srm: " << srm << std::endl;
 		
@@ -72,14 +78,18 @@ int main(){
 		std::cerr << "minimum_srm: " << srm_min << std::endl;
 		std::cerr << "minimum_rn: " << avg_error<< std::endl; 
 		std::cerr << "time for iteration: " << std::chrono::duration_cast<std::chrono::microseconds>(end-start).count()/1000000.0 << std::endl; 
-		std::cerr << curr_g << std::endl;  
 	}
 	auto end_proc = hrclock::now();
 	
 	int test_num_points = 1000000;
-	double te = test_hypothesis(test_num_points, selected_class, g_srm); 	
+	double srm_te = test_hypothesis(test_num_points, selected_class, g_srm); 	
+	double erm_te[5]; 
+	for (int i=0; i<5; i++){
+		erm_te[i] = test_hypothesis(test_num_points, i, all_g[i]); 		
+		std::cerr << "erm test error_class " << i << ":" << erm_te[i] << std::endl; 
+	}
 
-	std::cerr << "test error: " << te << std::endl; 
+	std::cerr << "srm test error: " << te << std::endl; 
 	std::cerr << "process time: " << std::chrono::duration_cast<std::chrono::microseconds>(end_proc-start_proc).count()/1000000.0 << std::endl; 
 		
 	return 0;
