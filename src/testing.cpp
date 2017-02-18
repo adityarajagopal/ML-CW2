@@ -18,9 +18,6 @@ void generate_data(int num, double lower, double upper, Eigen::MatrixXd& points)
 }
 
 void generate_classify(int num, double l_x1, double u_x1, double l_x2, double u_x2,  double noise, Eigen::MatrixXd& x1, Eigen::MatrixXd& x2, Eigen::MatrixXd& label){
-	//double scale = (upper - lower)/2; 
-	//double shift = lower + scale; 
-	//Eigen::MatrixXd offset = Eigen::MatrixXd::Constant(1,num,shift);
 	Eigen::MatrixXd rand_x1(1,num);
 	Eigen::MatrixXd rand_x2(1,num);
 	Eigen::MatrixXd rand_label(1,num);
@@ -72,9 +69,7 @@ double test_hypothesis(int num_points, double hclass, const Eigen::MatrixXd& G){
 	Eigen::MatrixXd learned; 
 	Eigen::MatrixXi colour_d; 
 	
-	generate_data(num_points, 0, 2.5, x1); 
-	generate_data(num_points, -1, 2, x2); 
-	classify(x1, x2, 0.1, y, colour_d, original_d); 
+	generate_classify(num_points, 0, 2.5, -1, 2, 0.1, x1, x2, y); 
 	initialise(hclass, x1, x2, feat, weights_d); 
 	return test_data(feat, G, y); 
 

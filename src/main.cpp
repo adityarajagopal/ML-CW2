@@ -32,12 +32,13 @@ int main(){
 	json graph; 
 	
 	noise = 0.1; 
-	num_points = 100000;
+	num_points = 10000;
 	iterations = 10;
 	delta = 0.5;
 	h_w = 0.2; 
 	srm_min = 2; 
 	
+	auto start_proc = hrclock::now();
 	for (q = 0; q < 5; q++){
 		std::cout << "q: " << q << std::endl;
 		Eigen::MatrixXd curr_g(q+2,(int)iterations); 
@@ -46,9 +47,6 @@ int main(){
 		auto start = hrclock::now();
 		for (int i=0; i<iterations; i++){
 			std::cout << "iter num: " << i << std::endl; 
-			//generate_data(num_points,0,2.5,x1);
-			//generate_data(num_points,-1,2,x2);
-			//classify(x1, x2, noise, y, colour, original);
 			generate_classify(num_points, 0, 2.5, -1, 2, noise, x1, x2, y); 
 			initialise(q, x1, x2, feat, weights); 
 			percept(feat, weights, y, 10000, error_percent); 
@@ -57,33 +55,32 @@ int main(){
 		}
 		auto end = hrclock::now();
 		
-		//std::cout << x1 << std::endl; 
-		//std::cout << x2 << std::endl; 
-		//std::cout << y << std::endl; 
 		avg_error = avg_error/iterations; 
 		omega = complexity(q+2, num_points, delta, h_w);
 		
-		srm = avg_error + 0.1*omega;
-		std::cout << "comp: " << omega << std::endl;
-		std::cout << "srm: " << omega << std::endl;
+		srm = avg_error + 0.01*omega;
+		std::cerr << "comp: " << omega << std::endl;
+		std::cerr << "srm: " << srm << std::endl;
 		
 		if (srm <= srm_min){
-			std::cout << "srm_minimum_q: " << q << std::endl; 
+			std::cerr << "srm_minimum_q: " << q << std::endl; 
 			selected_class = q;
 			srm_min = srm; 
 			g_srm = curr_g; 
 		}
 		
-		std::cout << "minimum_srm: " << srm_min << std::endl;
-		std::cout << "minimum_rn: " << avg_error<< std::endl; 
-		std::cout << "time for iteration: " << std::chrono::duration_cast<std::chrono::microseconds>(end-start).count() << std::endl; 
-		std::cout << curr_g << std::endl;  
+		std::cerr << "minimum_srm: " << srm_min << std::endl;
+		std::cerr << "minimum_rn: " << avg_error<< std::endl; 
+		std::cerr << "time for iteration: " << std::chrono::duration_cast<std::chrono::microseconds>(end-start).count()/1000000.0 << std::endl; 
+		std::cerr << curr_g << std::endl;  
 	}
+	auto end_proc = hrclock::now();
 	
 	int test_num_points = 1000000;
 	double te = test_hypothesis(test_num_points, selected_class, g_srm); 	
 
-	std::cout << te << std::endl; 
+	std::cerr << "test error: " << te << std::endl; 
+	std::cerr << "process time: " << std::chrono::duration_cast<std::chrono::microseconds>(end_proc-start_proc).count()/1000000.0 << std::endl; 
 		
 	return 0;
 }
