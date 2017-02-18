@@ -89,7 +89,7 @@ int main(){
 		std::cerr << "erm test error_class " << i << ":" << erm_te[i] << std::endl; 
 	}
 
-	std::cerr << "srm test error: " << te << std::endl; 
+	std::cerr << "srm test error: " << srm_te << std::endl; 
 	std::cerr << "process time: " << std::chrono::duration_cast<std::chrono::microseconds>(end_proc-start_proc).count()/1000000.0 << std::endl; 
 		
 	return 0;
