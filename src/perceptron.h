@@ -1,7 +1,12 @@
 #ifndef PERCEPTRON_H
 #define PERCEPTRON_H
 
-#include <eigen3/Eigen/Dense> 
+#include "Eigen/Dense"
+#include <chrono>
+#include <random>
+#include <iostream>
+
+typedef std::chrono::high_resolution_clock hrclock;
 
 //Inputs : x1, x2
 //Outputs :label, colour

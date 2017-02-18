@@ -1,9 +1,4 @@
 #include "perceptron.h"
-#include <chrono>
-#include <random>
-#include <iostream>
-
-typedef std::chrono::high_resolution_clock hrclock;
 
 void classify (const Eigen::MatrixXd& x1, const Eigen::MatrixXd& x2, double noise, Eigen::MatrixXd& label, Eigen::MatrixXi& colour, Eigen::MatrixXd& orig){
 	Eigen::MatrixXd class_temp(1,x1.cols()); 
