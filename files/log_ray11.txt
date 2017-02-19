@@ -295,3 +295,39 @@ erm test error_class 3:0.304248
 erm test error_class 4:0.304641
 srm test error: 0.294096
 process time: 26.1661
+
+TEST7: REPEAT=100, POINTS=100 -----------
+omult: 0.1
+comp: 1.23084
+srm: 0.319384
+srm_minimum_q: 0
+minimum_srm: 0.319384
+minimum_rn: 0.1963
+time for iteration: 28.1322
+comp: 1.40992
+srm: 0.332092
+minimum_srm: 0.319384
+minimum_rn: 0.1911
+time for iteration: 29.7825
+comp: 1.56676
+srm: 0.325176
+minimum_srm: 0.319384
+minimum_rn: 0.1685
+time for iteration: 31.5663
+comp: 1.70803
+srm: 0.350503
+minimum_srm: 0.319384
+minimum_rn: 0.1797
+time for iteration: 33.1792
+comp: 1.83762
+srm: 0.353362
+minimum_srm: 0.319384
+minimum_rn: 0.1696
+time for iteration: 34.8624
+erm test error_class 0:0.200866
+erm test error_class 1:0.230737
+erm test error_class 2:0.219071
+erm test error_class 3:0.2279
+erm test error_class 4:0.220076
+srm test error: 0.195848
+process time: 157.523
