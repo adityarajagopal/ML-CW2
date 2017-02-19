@@ -326,3 +326,75 @@ erm test error_class 3:0.208408
 erm test error_class 4:0.21888
 srm test error: 0.201221
 process time: 157.737
+
+TEST8: REPEAT=100, POINTS=10000 --------
+omult: 1
+comp: 0.15269
+srm: 0.360215
+srm_minimum_q: 0
+minimum_srm: 0.360215
+minimum_rn: 0.207525
+time for iteration: 2411.58
+comp: 0.17873
+srm: 0.398109
+minimum_srm: 0.360215
+minimum_rn: 0.219379
+time for iteration: 2572.3
+comp: 0.201189
+srm: 0.406913
+minimum_srm: 0.360215
+minimum_rn: 0.205724
+time for iteration: 2733.39
+comp: 0.221234
+srm: 0.423247
+minimum_srm: 0.360215
+minimum_rn: 0.202013
+time for iteration: 2890.79
+comp: 0.239507
+srm: 0.427409
+minimum_srm: 0.360215
+minimum_rn: 0.187902
+time for iteration: 3050.34
+erm test error_class 0:0.205668
+erm test error_class 1:0.223501
+erm test error_class 2:0.208717
+erm test error_class 3:0.202686
+erm test error_class 4:0.189382
+srm test error: 0.202665
+process time: 13658.4
+
+TEST9: REPEAT=50, POINTS=10000 --------
+omult: 1
+comp: 0.15269
+srm: 0.356038
+srm_minimum_q: 0
+minimum_srm: 0.356038
+minimum_rn: 0.203348
+time for iteration: 1196.69
+comp: 0.17873
+srm: 0.39831
+minimum_srm: 0.356038
+minimum_rn: 0.21958
+time for iteration: 1319.38
+comp: 0.201189
+srm: 0.410747
+minimum_srm: 0.356038
+minimum_rn: 0.209558
+time for iteration: 1447.91
+comp: 0.221234
+srm: 0.41771
+minimum_srm: 0.356038
+minimum_rn: 0.196476
+time for iteration: 1556.97
+comp: 0.239507
+srm: 0.432899
+minimum_srm: 0.356038
+minimum_rn: 0.193392
+time for iteration: 1581.99
+erm test error_class 0:0.207231
+erm test error_class 1:0.223714
+erm test error_class 2:0.218539
+erm test error_class 3:0.196831
+erm test error_class 4:0.191939
+srm test error: 0.203496
+process time: 7102.93
