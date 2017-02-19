@@ -1,0 +1,37 @@
+TEST1: REPEAT=100, POINTS=10000 --------
+omult: 0.1
+comp: 0.15269
+srm: 0.229801
+srm_minimum_q: 0
+minimum_srm: 0.229801
+minimum_rn: 0.214532
+time for iteration: 2400.13
+comp: 0.17873
+srm: 0.230807
+minimum_srm: 0.229801
+minimum_rn: 0.212934
+time for iteration: 2563.88
+comp: 0.201189
+srm: 0.230897
+minimum_srm: 0.229801
+minimum_rn: 0.210778
+time for iteration: 2761.36
+comp: 0.221234
+srm: 0.226793
+srm_minimum_q: 3
+minimum_srm: 0.226793
+minimum_rn: 0.20467
+time for iteration: 2908.52
+comp: 0.239507
+srm: 0.22611
+srm_minimum_q: 4
+minimum_srm: 0.22611
+minimum_rn: 0.202159
+time for iteration: 3073.84
+erm test error_class 0:0.213368
+erm test error_class 1:0.213027
+erm test error_class 2:0.215862
+erm test error_class 3:0.209935
+erm test error_class 4:0.205325
+srm test error: 0.200552
+process time: 13707.7
